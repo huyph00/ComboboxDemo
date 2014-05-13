@@ -25,7 +25,7 @@
 
         SampleObject * obj = [[SampleObject alloc]init];
         obj.strDetail = [NSString stringWithFormat:@"Dt:%d",i];
-        obj.strHeader = [NSString stringWithFormat:@"Hd:%d",i];
+        obj.strHeader = [NSString stringWithFormat:@"Hd:%d",i+1];
         obj.strSubDetail = [NSString stringWithFormat:@"SubDt:%d",i];
         obj.img = [UIImage imageNamed:@"rightArrow"];
         
@@ -52,7 +52,7 @@
     [dicProperties setObject:@"img" forKey:@"img02"];
     
     NSMutableDictionary * searchFunction= [[NSMutableDictionary alloc]init];
-    [searchFunction setValue:@"OR" forKey:@"type"];
+    [searchFunction setValue:@"or" forKey:@"type"];
     [searchFunction setValue:[NSArray arrayWithObjects:@"strDetail",@"strHeader", nil] forKey:@"variable"];
     
 //    NSString * strClassCellName = @"CustomCellWithXib";

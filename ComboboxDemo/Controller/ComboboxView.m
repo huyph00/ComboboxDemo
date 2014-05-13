@@ -37,8 +37,7 @@
         self.backgroundColor = [UIColor clearColor];
         dataArray = data;
         if (dataArray.count > 0) {
-            id obj = [dataArray objectAtIndex:0];
-            arrObjProperties = [self allPropertyNamesWithClass:[obj class]];
+            arrObjProperties = [self allPropertyNamesWithClass:[[dataArray objectAtIndex:0] class]];
         }
 
         resultArray = [NSArray arrayWithArray:dataArray];
@@ -260,10 +259,11 @@
                 if ([variable isEqualToString:cellKey]) {
 
                     result = [self searchInString:[obj valueForKey:variable] withKey:key];
-
+                    NSLog(@"%@",[obj valueForKey:variable]);
                 }
                 if(result && searchType == OR) break;
                 else if(!result && searchType == AND) break;
+                result = NO;
             }
             
             if(result)
@@ -390,8 +390,18 @@
         cell = [topLevelObjects objectAtIndex:0];
 
     }
+    id  data ;
+    @try {
+        
+        data = [resultArray objectAtIndex:indexPath.row];
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+    }
+    @finally {
+        // Added to show finally works as well
+    }
 
-    id  data = [resultArray objectAtIndex:indexPath.row];
     
     for (NSString *key in dicProperties.allKeys) {
         id value;
