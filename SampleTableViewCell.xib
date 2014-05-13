@@ -40,6 +40,12 @@
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="btnSubDetail02" destination="bBK-RR-laD" id="p2P-dd-F96"/>
+                <outlet property="img02" destination="GqZ-aV-Oc7" id="Bnm-9F-Pd5"/>
+                <outlet property="lblHeader02" destination="d1T-NX-Wah" id="GCD-eo-ygu"/>
+                <outlet property="lblTitle02" destination="8Mr-7Y-HoU" id="a25-T4-6Vw"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

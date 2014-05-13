@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *strHeader;
 @property (nonatomic, strong) NSString *strDetail;
 @property (nonatomic, strong) NSString *strSubDetail;
+
 @property (nonatomic, strong) UIImage *img;
 
 @end
