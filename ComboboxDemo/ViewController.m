@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SampleObject.h"
 @interface ViewController ()
 
 @end
@@ -18,25 +19,37 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    NSMutableArray * arrData = [[NSMutableArray alloc]init];
+    NSMutableArray * arrData = [NSMutableArray array];
     
     for (int i = 0; i < 10; i++) {
-        NSMutableDictionary * dic = [[NSMutableDictionary alloc]init];
-        [dic setValue:@"cell" forKey:@"name"];
-        [dic setValue:[NSString stringWithFormat:@"%d",i] forKey:@"title"];
-        [dic setObject:[UIImage imageNamed:@"rightArrow"] forKey:@"icon"];
-        [arrData addObject:dic];
+        SampleObject * obj = [[SampleObject alloc]init];
+        obj.strDetail = [NSString stringWithFormat:@"Dt:%d",i];
+        obj.strHeader = [NSString stringWithFormat:@"Hd:%d",i];
+        obj.strSubDetail = [NSString stringWithFormat:@"SubDt:%d",i];
+        obj.img = [UIImage imageNamed:@"rightArrow"];
+
+        [arrData addObject:obj];
     }
     
+    NSMutableDictionary * dicProperties = [NSMutableDictionary dictionary];
+    [dicProperties setObject:@"strDetail" forKey:@"lblTitle01"];
+    [dicProperties setObject:@"strHeader" forKey:@"lblHeader01"];
+    [dicProperties setObject:@"strSubDetail" forKey:@"lblSubDetail01"];
+    [dicProperties setObject:@"img" forKey:@"img01"];
     
     NSMutableDictionary * searchFunction= [[NSMutableDictionary alloc]init];
-    [searchFunction setValue:@"AND" forKey:@"type"];
-    [searchFunction setValue:[NSArray arrayWithObjects:@"title",@"name", nil] forKey:@"variable"];
+    [searchFunction setValue:@"OR" forKey:@"type"];
+    [searchFunction setValue:[NSArray arrayWithObjects:@"strDetail",@"strHeader", nil] forKey:@"variable"];
     
-    ComboboxView *cbView = [[ComboboxView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/2, 160, 30) dataArray:arrData isCheckBox:YES cell:@"DefaultCell" font:nil textPlaceHolder:@"Xin nhap du lieu"];
+    ComboboxView *cbView = [[ComboboxView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/2, 200, 25) dataArray:arrData isCheckBox:YES cell:@"CustomCellWithXib" font:nil textPlaceHolder:@"Xin nhap du lieu"];
     [self.view addSubview:cbView];
     [cbView setShowMode:UP];
+    
+//    [cbView setDropBoxOrogin_x:100];
+    [cbView setDropBoxWidth:300];
+
     [cbView setSearchType:searchFunction];
+    [cbView setDicProperties:dicProperties];
     cbView.delegate = self;
     
     

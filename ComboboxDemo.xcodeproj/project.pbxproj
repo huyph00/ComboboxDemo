@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9838A58A191DD93E00FF651A /* CustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9838A589191DD93E00FF651A /* CustomViewCell.xib */; };
 		9838A58E191E111A00FF651A /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9838A58D191E111A00FF651A /* rightArrow.png */; };
-		988A777E191CC0E000A1AF00 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 988A777D191CC0E000A1AF00 /* DefaultCell.m */; };
+		987E2A8219208FB100371B01 /* CustomCellWithXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 987E2A8019208FB100371B01 /* CustomCellWithXib.m */; };
+		987E2A8319208FB100371B01 /* CustomCellWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987E2A8119208FB100371B01 /* CustomCellWithXib.xib */; };
+		987E2A851920A57C00371B01 /* textBackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 987E2A841920A57C00371B01 /* textBackGround.png */; };
+		987E2A871920B67E00371B01 /* dropbox-bg-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 987E2A861920B67E00371B01 /* dropbox-bg-up.png */; };
 		989D7B6D191B6856002C750C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989D7B6C191B6856002C750C /* Foundation.framework */; };
 		989D7B6F191B6856002C750C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989D7B6E191B6856002C750C /* CoreGraphics.framework */; };
 		989D7B71191B6856002C750C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989D7B70191B6856002C750C /* UIKit.framework */; };
@@ -26,6 +28,16 @@
 		989D7B99191B6856002C750C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 989D7B97191B6856002C750C /* InfoPlist.strings */; };
 		989D7B9B191B6856002C750C /* ComboboxDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 989D7B9A191B6856002C750C /* ComboboxDemoTests.m */; };
 		989D7BA7191B705E002C750C /* ComboboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 989D7BA6191B705E002C750C /* ComboboxView.m */; };
+		98B4EB9A19207B7600851F89 /* button-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B4EB9719207B7600851F89 /* button-clear.png */; };
+		98B4EB9B19207B7600851F89 /* dropbox-bg-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B4EB9819207B7600851F89 /* dropbox-bg-down.png */; };
+		98B4EB9C19207B7600851F89 /* dropBtn-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B4EB9919207B7600851F89 /* dropBtn-normal.png */; };
+		98B4EB9F1920823800851F89 /* checkBox-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B4EB9D1920823800851F89 /* checkBox-active.png */; };
+		98B4EBA01920823800851F89 /* checkBox-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B4EB9E1920823800851F89 /* checkBox-normal.png */; };
+		98DD13391920D4B100218574 /* SampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD13371920D4B100218574 /* SampleTableViewCell.m */; };
+		98DD133A1920D4B100218574 /* SampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98DD13381920D4B100218574 /* SampleTableViewCell.xib */; };
+		98DD133E1920D4BD00218574 /* SampleTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD133C1920D4BD00218574 /* SampleTableViewCell2.m */; };
+		98DD133F1920D4BD00218574 /* SampleTableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98DD133D1920D4BD00218574 /* SampleTableViewCell2.xib */; };
+		98DD13421920D4FA00218574 /* SampleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD13411920D4FA00218574 /* SampleObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +51,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9838A589191DD93E00FF651A /* CustomViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomViewCell.xib; sourceTree = "<group>"; };
-		9838A58D191E111A00FF651A /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow.png; sourceTree = "<group>"; };
-		988A777C191CC0E000A1AF00 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
-		988A777D191CC0E000A1AF00 /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
+		9838A58D191E111A00FF651A /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightArrow.png; path = ../rightArrow.png; sourceTree = "<group>"; };
+		987E2A7F19208FB100371B01 /* CustomCellWithXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellWithXib.h; sourceTree = "<group>"; };
+		987E2A8019208FB100371B01 /* CustomCellWithXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellWithXib.m; sourceTree = "<group>"; };
+		987E2A8119208FB100371B01 /* CustomCellWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellWithXib.xib; sourceTree = "<group>"; };
+		987E2A841920A57C00371B01 /* textBackGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textBackGround.png; sourceTree = "<group>"; };
+		987E2A861920B67E00371B01 /* dropbox-bg-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropbox-bg-up.png"; sourceTree = "<group>"; };
 		989D7B69191B6856002C750C /* ComboboxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComboboxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		989D7B6C191B6856002C750C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		989D7B6E191B6856002C750C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,6 +79,19 @@
 		989D7B9A191B6856002C750C /* ComboboxDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComboboxDemoTests.m; sourceTree = "<group>"; };
 		989D7BA5191B705E002C750C /* ComboboxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboboxView.h; sourceTree = "<group>"; };
 		989D7BA6191B705E002C750C /* ComboboxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboboxView.m; sourceTree = "<group>"; };
+		98B4EB9719207B7600851F89 /* button-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-clear.png"; sourceTree = "<group>"; };
+		98B4EB9819207B7600851F89 /* dropbox-bg-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropbox-bg-down.png"; sourceTree = "<group>"; };
+		98B4EB9919207B7600851F89 /* dropBtn-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropBtn-normal.png"; sourceTree = "<group>"; };
+		98B4EB9D1920823800851F89 /* checkBox-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBox-active.png"; sourceTree = "<group>"; };
+		98B4EB9E1920823800851F89 /* checkBox-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBox-normal.png"; sourceTree = "<group>"; };
+		98DD13361920D4B100218574 /* SampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTableViewCell.h; sourceTree = "<group>"; };
+		98DD13371920D4B100218574 /* SampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTableViewCell.m; sourceTree = "<group>"; };
+		98DD13381920D4B100218574 /* SampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleTableViewCell.xib; sourceTree = "<group>"; };
+		98DD133B1920D4BD00218574 /* SampleTableViewCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTableViewCell2.h; sourceTree = "<group>"; };
+		98DD133C1920D4BD00218574 /* SampleTableViewCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTableViewCell2.m; sourceTree = "<group>"; };
+		98DD133D1920D4BD00218574 /* SampleTableViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleTableViewCell2.xib; sourceTree = "<group>"; };
+		98DD13401920D4FA00218574 /* SampleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleObject.h; sourceTree = "<group>"; };
+		98DD13411920D4FA00218574 /* SampleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +121,14 @@
 		989D7B60191B6856002C750C = {
 			isa = PBXGroup;
 			children = (
+				98DD13401920D4FA00218574 /* SampleObject.h */,
+				98DD13411920D4FA00218574 /* SampleObject.m */,
+				98DD133B1920D4BD00218574 /* SampleTableViewCell2.h */,
+				98DD133C1920D4BD00218574 /* SampleTableViewCell2.m */,
+				98DD133D1920D4BD00218574 /* SampleTableViewCell2.xib */,
+				98DD13361920D4B100218574 /* SampleTableViewCell.h */,
+				98DD13371920D4B100218574 /* SampleTableViewCell.m */,
+				98DD13381920D4B100218574 /* SampleTableViewCell.xib */,
 				989D7B72191B6856002C750C /* ComboboxDemo */,
 				989D7B94191B6856002C750C /* ComboboxDemoTests */,
 				989D7B6B191B6856002C750C /* Frameworks */,
@@ -132,7 +167,7 @@
 				989D7B84191B6856002C750C /* ViewController.h */,
 				989D7B85191B6856002C750C /* ViewController.m */,
 				989D7B87191B6856002C750C /* Images.xcassets */,
-				9838A58D191E111A00FF651A /* rightArrow.png */,
+				98B4EB9619207B7600851F89 /* Resources */,
 				989D7B73191B6856002C750C /* Supporting Files */,
 			);
 			path = ComboboxDemo;
@@ -172,11 +207,26 @@
 			children = (
 				989D7BA5191B705E002C750C /* ComboboxView.h */,
 				989D7BA6191B705E002C750C /* ComboboxView.m */,
-				988A777C191CC0E000A1AF00 /* DefaultCell.h */,
-				988A777D191CC0E000A1AF00 /* DefaultCell.m */,
-				9838A589191DD93E00FF651A /* CustomViewCell.xib */,
+				987E2A7F19208FB100371B01 /* CustomCellWithXib.h */,
+				987E2A8019208FB100371B01 /* CustomCellWithXib.m */,
+				987E2A8119208FB100371B01 /* CustomCellWithXib.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		98B4EB9619207B7600851F89 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9838A58D191E111A00FF651A /* rightArrow.png */,
+				987E2A861920B67E00371B01 /* dropbox-bg-up.png */,
+				987E2A841920A57C00371B01 /* textBackGround.png */,
+				98B4EB9D1920823800851F89 /* checkBox-active.png */,
+				98B4EB9E1920823800851F89 /* checkBox-normal.png */,
+				98B4EB9719207B7600851F89 /* button-clear.png */,
+				98B4EB9819207B7600851F89 /* dropbox-bg-down.png */,
+				98B4EB9919207B7600851F89 /* dropBtn-normal.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,12 +305,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B4EB9C19207B7600851F89 /* dropBtn-normal.png in Resources */,
+				98B4EB9A19207B7600851F89 /* button-clear.png in Resources */,
+				98B4EBA01920823800851F89 /* checkBox-normal.png in Resources */,
 				9838A58E191E111A00FF651A /* rightArrow.png in Resources */,
 				989D7B83191B6856002C750C /* Main_iPad.storyboard in Resources */,
 				989D7B88191B6856002C750C /* Images.xcassets in Resources */,
 				989D7B80191B6856002C750C /* Main_iPhone.storyboard in Resources */,
+				98B4EB9B19207B7600851F89 /* dropbox-bg-down.png in Resources */,
 				989D7B77191B6856002C750C /* InfoPlist.strings in Resources */,
-				9838A58A191DD93E00FF651A /* CustomViewCell.xib in Resources */,
+				987E2A8319208FB100371B01 /* CustomCellWithXib.xib in Resources */,
+				987E2A871920B67E00371B01 /* dropbox-bg-up.png in Resources */,
+				98B4EB9F1920823800851F89 /* checkBox-active.png in Resources */,
+				98DD133F1920D4BD00218574 /* SampleTableViewCell2.xib in Resources */,
+				98DD133A1920D4B100218574 /* SampleTableViewCell.xib in Resources */,
+				987E2A851920A57C00371B01 /* textBackGround.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,11 +338,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98DD133E1920D4BD00218574 /* SampleTableViewCell2.m in Sources */,
 				989D7B86191B6856002C750C /* ViewController.m in Sources */,
 				989D7BA7191B705E002C750C /* ComboboxView.m in Sources */,
 				989D7B7D191B6856002C750C /* AppDelegate.m in Sources */,
-				988A777E191CC0E000A1AF00 /* DefaultCell.m in Sources */,
+				98DD13391920D4B100218574 /* SampleTableViewCell.m in Sources */,
 				989D7B79191B6856002C750C /* main.m in Sources */,
+				98DD13421920D4FA00218574 /* SampleObject.m in Sources */,
+				987E2A8219208FB100371B01 /* CustomCellWithXib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
