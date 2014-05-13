@@ -17,7 +17,7 @@ typedef enum {
 } search_type;
 @protocol ComboboxViewDelegate
 
--(void)cellSelected:(id )returnCell;
+-(void)cellSelected:(id )returnObj;
 
 @end
 @interface ComboboxView : UIView<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
@@ -79,12 +79,10 @@ typedef enum {
 
 -(void)setDicProperties:(NSDictionary *)dic;
 
-//this array must be dictionary
 -(void)setDataArray:(NSArray *)data;
 
--(void)setSearchType:(NSDictionary*)searchTypeDic;//searchtype must contain :array "variables" and
-                                                //"type"
-                                                //
+//search dic contain: string of variables and search function
+-(void)setSearchType:(NSDictionary*)searchTypeDic;
 
 -(id)initWithFrame:(CGRect)frame dataArray:(NSArray*)data  isCheckBox:(BOOL)isCheckBox cell:(NSString *)cellName font:(UIFont*)font textPlaceHolder:(NSString*)textPlaceHolder;
 @end
