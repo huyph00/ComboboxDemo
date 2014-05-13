@@ -349,6 +349,7 @@
 
 }
 #pragma mark - textfield delegate
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -499,6 +500,7 @@
     [disapearButtonTimer invalidate];
     selectedObj = nil;
     arrDataToShow = [NSArray arrayWithArray:arrData];
+    [tbvDropBox reloadData];
     textInput.text = @"";
     clearButton.hidden = YES;
 //    [self startTimerToDisapearClearButton];
