@@ -24,9 +24,8 @@ typedef enum {
 {
     UITableView *tbvDropBox;
     
-    NSArray *dataArray; //all data
-    
-    NSArray *resultArray; //data to show
+    NSArray *arrData; //all data
+    NSArray *arrDataToShow; //data to show
 
     BOOL isCheckBoxSelected;
     
@@ -48,24 +47,29 @@ typedef enum {
     
     search_type searchType;
  
-    NSArray * searchVariable;
+    NSArray * arrSearchVariable;
     
-    NSString * strCustomCellName;//class customviewcell
+    NSString * strCustomCellName;//class custom cell
     
-    id selectedObj;//selected dictionary
+    id selectedObj;//selected object
     
     NSTimer * disapearButtonTimer;
     
     NSDictionary *dicProperties;
 
     NSArray * arrObjProperties;
-
+    
+    NSThread*  bgThread;
+    
 }
 //@property(nonatomic) CGRect dropBoxRect;
 
 @property(nonatomic) dropBoxShowMode showMode;
+
 @property(nonatomic) CGFloat cellHeight;
+
 @property(nonatomic) BOOL isCheckBoxSelected;
+
 @property(nonatomic,strong) id selectedObj;
 
 //@property(nonatomic,strong) UIView * dropBoxView;
@@ -74,7 +78,6 @@ typedef enum {
 -(void)setCellView:(NSString *)className;
 //set dropbox x and width
 -(void)setDropBoxWidth:(CGFloat)width;
-
 -(void)setDropBoxOrigin_x:(CGFloat)origin_x;
 
 -(void)setDicProperties:(NSDictionary *)dic;

@@ -28,16 +28,10 @@
         obj.strHeader = [NSString stringWithFormat:@"Hd:%d",i+1];
         obj.strSubDetail = [NSString stringWithFormat:@"SubDt:%d",i];
         obj.img = [UIImage imageNamed:@"rightArrow"];
-        
-        
-        
-        
+
         [arrData addObject:obj];
     }
-    
-    
-    
-    
+
     
     NSMutableDictionary * dicProperties = [NSMutableDictionary dictionary];
     [dicProperties setObject:@"strDetail" forKey:@"lblTitle01"];
@@ -52,7 +46,7 @@
 //    [dicProperties setObject:@"img" forKey:@"img02"];
     
     NSMutableDictionary * searchFunction= [[NSMutableDictionary alloc]init];
-    [searchFunction setValue:@"AnD" forKey:@"searchType"];
+    [searchFunction setValue:@"or" forKey:@"searchType"];
     [searchFunction setValue:@"strDetail,strHeader" forKey:@"variable"];
     
     NSString * strClassCellName = @"CustomCellWithXib";

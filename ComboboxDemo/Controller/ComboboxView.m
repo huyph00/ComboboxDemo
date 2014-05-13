@@ -35,12 +35,12 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
-        dataArray = data;
-        if (dataArray.count > 0) {
-            arrObjProperties = [self allPropertyNamesWithClass:[[dataArray objectAtIndex:0] class]];
+        arrData = data;
+        if (arrData.count > 0) {
+            arrObjProperties = [self allPropertyNamesWithClass:[[arrData objectAtIndex:0] class]];
         }
 
-        resultArray = [NSArray arrayWithArray:dataArray];
+        arrDataToShow = [NSArray arrayWithArray:arrData];
         strCustomCellName = cellName;
         cellView = NSClassFromString(cellName);
         cellHeight = 44;
@@ -133,14 +133,14 @@
 {
     if(!dropBoxView)
     {
-        resultArray = [NSArray arrayWithArray:dataArray];
+        arrDataToShow = [NSArray arrayWithArray:arrData];
         [self showDropBox:YES];
     }
     else  [self showDropBox:dropBoxView.isHidden];
 }
 -(void)setDataArray:(NSArray *)data
 {
-    dataArray = data;
+    arrData = data;
 }
 -(void)selectCheckBox:(UIButton*)sender
 {
@@ -249,12 +249,12 @@
 {
     
     NSMutableArray *arrObjResult = [NSMutableArray array];
-    for (int i = 0; i< dataArray.count; i++) {
-        id obj = [dataArray objectAtIndex:i];
+    for (int i = 0; i< arrData.count; i++) {
+        id obj = [arrData objectAtIndex:i];
 
         NSMutableArray *arrValueObj = [NSMutableArray array];
         
-        for (NSString *  property in searchVariable) {
+        for (NSString *  property in arrSearchVariable) {
             if(property)[arrValueObj addObject:[obj valueForKey:property]];
         }
         
@@ -262,7 +262,7 @@
         
         NSArray *results = [arrValueObj filteredArrayUsingPredicate:predicate];
         
-        if ((searchType == OR && results.count > 0 )||(searchType == AND && results.count == searchVariable.count) ) {
+        if ((searchType == OR && results.count > 0 )||(searchType == AND && results.count == arrSearchVariable.count) ) {
             [arrObjResult addObject:obj];
         }
        
@@ -316,7 +316,7 @@
 -(void)setSearchType:(NSDictionary *)searchTypeDic
 {
     NSString * strArrayVariable = [searchTypeDic objectForKey:@"variable"];
-    searchVariable = [strArrayVariable componentsSeparatedByString:@","];
+    arrSearchVariable = [strArrayVariable componentsSeparatedByString:@","];
   
     NSString * type = [searchTypeDic objectForKey:@"searchType"];
     type = [type lowercaseStringWithLocale:[NSLocale currentLocale]];
@@ -365,31 +365,53 @@
     else key = [NSString stringWithFormat:@"%@%@",textField.text,string];
     [self showDropBox:YES];
     if ([key isEqualToString:@""]) {
-        resultArray = [NSArray arrayWithArray:dataArray];
+        arrDataToShow = [NSArray arrayWithArray:arrData];
         [tbvDropBox reloadData];
 
         return YES;
     }
     //auto search in background
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    if(bgThread && bgThread.isExecuting)  [bgThread cancel];
+    bgThread = [[NSThread alloc] initWithTarget:self selector:@selector(startSearching:) object:key];
+    [bgThread start];
+    
+//    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        @try {
+//            resultArray = [self resultWithKey:key];
+//
+//        }
+//        @catch (NSException *exception) {
+//            
+//        }
+//        @finally {
+//            
+//        }
+//
+//        dispatch_async( dispatch_get_main_queue(), ^{
+//
+//            [tbvDropBox reloadData];
+//        });
+//    });
+    return YES;
+}
+
+-(void)startSearching:(NSString *)strKeySearch
+{
         @try {
-            resultArray = [self resultWithKey:key];
+            arrDataToShow = [self resultWithKey:strKeySearch];
 
         }
         @catch (NSException *exception) {
-            
+
         }
         @finally {
-            
-        }
-
-        dispatch_async( dispatch_get_main_queue(), ^{
-
             [tbvDropBox reloadData];
-        });
-    });
-    return YES;
+        }
+    
 }
+
+
+
 -(void)setDicProperties:(NSDictionary *)dic;
 {
     dicProperties = dic;
@@ -399,7 +421,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
 
-    selectedObj = [resultArray objectAtIndex:indexPath.row];
+    selectedObj = [arrDataToShow objectAtIndex:indexPath.row];
     [delegate cellSelected:selectedObj];
     [self showDropBox:NO];
     textInput.text = @"";
@@ -409,7 +431,7 @@
 #pragma mark - table database
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    return resultArray.count;
+    return arrDataToShow.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
@@ -429,7 +451,7 @@
     id  data ;
     @try {
         
-        data = [resultArray objectAtIndex:indexPath.row];
+        data = [arrDataToShow objectAtIndex:indexPath.row];
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
@@ -476,7 +498,7 @@
 
     [disapearButtonTimer invalidate];
     selectedObj = nil;
-    resultArray = [NSArray arrayWithArray:dataArray];
+    arrDataToShow = [NSArray arrayWithArray:arrData];
     textInput.text = @"";
     clearButton.hidden = YES;
 //    [self startTimerToDisapearClearButton];
@@ -499,7 +521,6 @@
     //handle swipe event
     if(!clearButton.hidden) return;
     [self startTimerToDisapearClearButton];
-    
     
 //    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
 //        NSLog(@"Left Swipe");
