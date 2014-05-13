@@ -50,7 +50,7 @@ typedef enum {
  
     NSArray * searchVariable;
     
-    NSString * customViewCell;//class customviewcell
+    NSString * strCustomCellName;//class customviewcell
     
     id selectedObj;//selected dictionary
     
@@ -71,9 +71,11 @@ typedef enum {
 //@property(nonatomic,strong) UIView * dropBoxView;
 @property (nonatomic,strong) id<ComboboxViewDelegate> delegate;
 
+-(void)setCellView:(NSString *)className;
 //set dropbox x and width
 -(void)setDropBoxWidth:(CGFloat)width;
--(void)setDropBoxOrogin_x:(CGFloat)origin_x;
+
+-(void)setDropBoxOrigin_x:(CGFloat)origin_x;
 
 -(void)setDicProperties:(NSDictionary *)dic;
 
@@ -84,5 +86,5 @@ typedef enum {
                                                 //"type"
                                                 //
 
--(id)initWithFrame:(CGRect)frame dataArray:(NSArray*)data  isCheckBox:(BOOL)isCheckBox cell:(NSString *)cell font:(UIFont*)font textPlaceHolder:(NSString*)textPlaceHolder;
+-(id)initWithFrame:(CGRect)frame dataArray:(NSArray*)data  isCheckBox:(BOOL)isCheckBox cell:(NSString *)cellName font:(UIFont*)font textPlaceHolder:(NSString*)textPlaceHolder;
 @end

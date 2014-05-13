@@ -28,7 +28,7 @@
     // Drawing code
 }
 */
--(id)initWithFrame:(CGRect)frame dataArray:(NSArray*)data  isCheckBox:(BOOL)isCheckBox cell:(NSString *)cell font:(UIFont*)font textPlaceHolder:(NSString*)textPlaceHolder;
+-(id)initWithFrame:(CGRect)frame dataArray:(NSArray*)data  isCheckBox:(BOOL)isCheckBox cell:(NSString *)cellName font:(UIFont*)font textPlaceHolder:(NSString*)textPlaceHolder;
 {
 
     self = [super initWithFrame:frame];
@@ -41,12 +41,12 @@
         }
 
         resultArray = [NSArray arrayWithArray:dataArray];
-        customViewCell = cell;
-        cellView = NSClassFromString(cell);
+        strCustomCellName = cellName;
+        cellView = NSClassFromString(cellName);
         cellHeight = 44;
         dropBoxRect = self.frame;
 
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:customViewCell owner:self options:nil];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:strCustomCellName owner:self options:nil];
         id cell = [topLevelObjects objectAtIndex:0];
         cellHeight = ((UIView *)cell).frame.size.height;
         //  if(containerView)
@@ -247,8 +247,30 @@
 
 -(NSArray*)resultWithKey:(NSString *)key
 {
-  
-    NSMutableArray *resultArr = [NSMutableArray array];
+    
+    NSMutableArray *arrObjResult = [NSMutableArray array];
+    for (int i = 0; i< dataArray.count; i++) {
+        id obj = [dataArray objectAtIndex:i];
+
+        NSMutableArray *arrValueObj = [NSMutableArray array];
+        
+        for (NSString *  property in searchVariable) {
+            if(property)[arrValueObj addObject:[obj valueForKey:property]];
+        }
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@",key]; // if you need case sensitive search avoid '[c]' in the predicate
+        
+        NSArray *results = [arrValueObj filteredArrayUsingPredicate:predicate];
+        
+        if ((searchType == OR && results.count > 0 )||(searchType == AND && results.count == searchVariable.count) ) {
+            [arrObjResult addObject:obj];
+        }
+       
+        
+    }
+    
+  /*
+    NSMutableArray *arrObjResult = [NSMutableArray array];
     for (int i = 0; i< dataArray.count; i++) {
         
         id obj = [dataArray objectAtIndex:i];
@@ -268,13 +290,13 @@
             
             if(result)
             {
-                [resultArr addObject:[dataArray objectAtIndex:i]];
+                [arrObjResult addObject:[dataArray objectAtIndex:i]];
                 break;
             }
         }
     }
-    
-    return resultArr;
+    */
+    return arrObjResult;
 }
 
 
@@ -293,23 +315,37 @@
 
 -(void)setSearchType:(NSDictionary *)searchTypeDic
 {
-    
-    searchVariable = [searchTypeDic objectForKey:@"variable"];
+    NSString * strArrayVariable = [searchTypeDic objectForKey:@"variable"];
+    searchVariable = [strArrayVariable componentsSeparatedByString:@","];
   
-    NSString * type = [searchTypeDic objectForKey:@"type"];
+    NSString * type = [searchTypeDic objectForKey:@"searchType"];
+    type = [type lowercaseStringWithLocale:[NSLocale currentLocale]];
     if ([type isEqualToString:@"and"]) {
         searchType = AND;
     
     }
-    else searchType = OR;
+    else if([type isEqualToString:@"or"])
+    {
+        searchType = OR;
+    }
 }
 -(void)setDropBoxWidth:(CGFloat)width;
 {
     dropBoxRect.size.width = width;
 }
--(void)setDropBoxOrogin_x:(CGFloat)origin_x;
+-(void)setDropBoxOrigin_x:(CGFloat)origin_x;
 {
     dropBoxRect.origin.x = origin_x;
+
+}
+-(void)setCellView:(NSString *)className;
+{
+    strCustomCellName = className;
+    cellView = NSClassFromString(className);
+    cellHeight = 44;
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:strCustomCellName owner:self options:nil];
+    id cell = [topLevelObjects objectAtIndex:0];
+    cellHeight = ((UIView *)cell).frame.size.height;
 
 }
 #pragma mark - textfield delegate
@@ -383,10 +419,10 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:customViewCell];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:strCustomCellName];
     
     if (cell == nil) {
-        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:customViewCell owner:self options:nil];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:strCustomCellName owner:self options:nil];
         cell = [topLevelObjects objectAtIndex:0];
 
     }

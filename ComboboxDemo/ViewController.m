@@ -40,20 +40,20 @@
     
     
     NSMutableDictionary * dicProperties = [NSMutableDictionary dictionary];
-//    [dicProperties setObject:@"strDetail" forKey:@"lblTitle01"];
-//    [dicProperties setObject:@"strHeader" forKey:@"lblHeader01"];
-//    [dicProperties setObject:@"strSubDetail" forKey:@"lblSubDetail01"];
-//    [dicProperties setObject:@"img" forKey:@"img01"];
+    [dicProperties setObject:@"strDetail" forKey:@"lblTitle01"];
+    [dicProperties setObject:@"strHeader" forKey:@"lblHeader01"];
+    [dicProperties setObject:@"strSubDetail" forKey:@"lblSubDetail01"];
+    [dicProperties setObject:@"img" forKey:@"img01"];
     
     //test SampleTableViewCell
-    [dicProperties setObject:@"strDetail" forKey:@"lblTitle02"];
-    [dicProperties setObject:@"strHeader" forKey:@"lblHeader02"];
-    [dicProperties setObject:@"strSubDetail" forKey:@"btnSubDetail02"];
-    [dicProperties setObject:@"img" forKey:@"img02"];
+//    [dicProperties setObject:@"strDetail" forKey:@"lblTitle02"];
+//    [dicProperties setObject:@"strHeader" forKey:@"lblHeader02"];
+//    [dicProperties setObject:@"strSubDetail" forKey:@"btnSubDetail02"];
+//    [dicProperties setObject:@"img" forKey:@"img02"];
     
     NSMutableDictionary * searchFunction= [[NSMutableDictionary alloc]init];
-    [searchFunction setValue:@"or" forKey:@"type"];
-    [searchFunction setValue:[NSArray arrayWithObjects:@"strDetail",@"strHeader", nil] forKey:@"variable"];
+    [searchFunction setValue:@"AnD" forKey:@"searchType"];
+    [searchFunction setValue:@"strDetail,strHeader" forKey:@"variable"];
     
 //    NSString * strClassCellName = @"CustomCellWithXib";
 
@@ -63,9 +63,9 @@
     [self.view addSubview:cbView];
     [cbView setShowMode:UP];
     
-//    [cbView setDropBoxOrogin_x:100];
+//    [cbView setDropBoxOrigin_x:100];
     [cbView setDropBoxWidth:300];
-
+//    [cbView setCellView:@"CustomCellWithXib"];
     [cbView setSearchType:searchFunction];
     [cbView setDicProperties:dicProperties];
     cbView.delegate = self;
