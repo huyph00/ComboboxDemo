@@ -53,7 +53,7 @@
 
 //    NSString * strClassCellName = @"SampleTableViewCell";
     
-    ComboboxView *cbView = [[ComboboxView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/2, 200, 25) dataArray:arrData isCheckBox:NO cell:strClassCellName font:nil textPlaceHolder:@"Xin nhap du lieu"];
+    ComboboxView *cbView = [[ComboboxView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/2, 200, 20) dataArray:arrData isCheckBox:YES cell:strClassCellName font:nil textPlaceHolder:@"Xin nhap du lieu"];
     [self.view addSubview:cbView];
     [cbView setShowMode:DOWN];
     

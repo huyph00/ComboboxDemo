@@ -71,7 +71,8 @@ typedef enum {
 
 @property(nonatomic,strong) id selectedObj;
 
-//@property(nonatomic,strong) UIView * dropBoxView;
+@property(nonatomic,strong) UITextField * textInput;
+
 @property (nonatomic,strong) id<ComboboxViewDelegate> delegate;
 
 -(void)setCellView:(NSString *)className;

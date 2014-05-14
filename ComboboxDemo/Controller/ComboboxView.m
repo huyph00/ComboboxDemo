@@ -10,7 +10,7 @@
 #import "objc/runtime.h"
 
 @implementation ComboboxView
-@synthesize showMode,delegate,cellHeight,isCheckBoxSelected,selectedObj;
+@synthesize showMode,delegate,cellHeight,isCheckBoxSelected,selectedObj,textInput;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -83,6 +83,7 @@
         textInput.placeholder = textPlaceHolder;
         textInput.borderStyle = UITextBorderStyleNone;
         textInput.delegate = self;
+        [textInput setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
 //      textInput.background = [self standarScaleWithImage:[UIImage imageWithContentsOfFile:    [[NSBundle mainBundle] pathForResource:@"textBackGround" ofType:@"png"]]];
         [self addSubview:textInput];
 //      drop button
@@ -194,7 +195,7 @@
         }
         dropBoxView = [[UIView alloc]init];
         dropBoxView.frame = dropBoxFrame;
-        
+        //bg image
         UIImageView *bgImage = [[UIImageView alloc]initWithFrame:dropBoxView.bounds] ;
         bgImage.image = dropBoxBg;
         bgImage.tag = 1111;
