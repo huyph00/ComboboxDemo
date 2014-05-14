@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9838A58E191E111A00FF651A /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9838A58D191E111A00FF651A /* rightArrow.png */; };
 		987E2A8219208FB100371B01 /* CustomCellWithXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 987E2A8019208FB100371B01 /* CustomCellWithXib.m */; };
 		987E2A8319208FB100371B01 /* CustomCellWithXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 987E2A8119208FB100371B01 /* CustomCellWithXib.xib */; };
-		987E2A851920A57C00371B01 /* textBackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 987E2A841920A57C00371B01 /* textBackGround.png */; };
-		987E2A871920B67E00371B01 /* dropbox-bg-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 987E2A861920B67E00371B01 /* dropbox-bg-up.png */; };
+		988805D2192311BD0043B14F /* combo-box-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 988805CE192311BD0043B14F /* combo-box-bg.png */; };
+		988805D3192311BD0043B14F /* combo-check-icon-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 988805CF192311BD0043B14F /* combo-check-icon-normal.png */; };
+		988805D4192311BD0043B14F /* combo-delete-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 988805D0192311BD0043B14F /* combo-delete-icon.png */; };
+		988805D5192311BD0043B14F /* combo-down-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 988805D1192311BD0043B14F /* combo-down-icon.png */; };
+		988805D7192316030043B14F /* combo-check-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 988805D6192316030043B14F /* combo-check-icon.png */; };
 		989D7B6D191B6856002C750C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989D7B6C191B6856002C750C /* Foundation.framework */; };
 		989D7B6F191B6856002C750C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989D7B6E191B6856002C750C /* CoreGraphics.framework */; };
 		989D7B71191B6856002C750C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 989D7B70191B6856002C750C /* UIKit.framework */; };
@@ -28,11 +30,7 @@
 		989D7B99191B6856002C750C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 989D7B97191B6856002C750C /* InfoPlist.strings */; };
 		989D7B9B191B6856002C750C /* ComboboxDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 989D7B9A191B6856002C750C /* ComboboxDemoTests.m */; };
 		989D7BA7191B705E002C750C /* ComboboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 989D7BA6191B705E002C750C /* ComboboxView.m */; };
-		98B4EB9A19207B7600851F89 /* button-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B4EB9719207B7600851F89 /* button-clear.png */; };
-		98B4EB9B19207B7600851F89 /* dropbox-bg-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B4EB9819207B7600851F89 /* dropbox-bg-down.png */; };
-		98B4EB9C19207B7600851F89 /* dropBtn-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B4EB9919207B7600851F89 /* dropBtn-normal.png */; };
-		98B4EB9F1920823800851F89 /* checkBox-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B4EB9D1920823800851F89 /* checkBox-active.png */; };
-		98B4EBA01920823800851F89 /* checkBox-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B4EB9E1920823800851F89 /* checkBox-normal.png */; };
+		98DBA4951923488800527592 /* icon-cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DBA4941923488800527592 /* icon-cell.png */; };
 		98DD13391920D4B100218574 /* SampleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD13371920D4B100218574 /* SampleTableViewCell.m */; };
 		98DD133A1920D4B100218574 /* SampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98DD13381920D4B100218574 /* SampleTableViewCell.xib */; };
 		98DD133E1920D4BD00218574 /* SampleTableViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 98DD133C1920D4BD00218574 /* SampleTableViewCell2.m */; };
@@ -51,12 +49,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9838A58D191E111A00FF651A /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightArrow.png; path = ../rightArrow.png; sourceTree = "<group>"; };
 		987E2A7F19208FB100371B01 /* CustomCellWithXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellWithXib.h; sourceTree = "<group>"; };
 		987E2A8019208FB100371B01 /* CustomCellWithXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellWithXib.m; sourceTree = "<group>"; };
 		987E2A8119208FB100371B01 /* CustomCellWithXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCellWithXib.xib; sourceTree = "<group>"; };
-		987E2A841920A57C00371B01 /* textBackGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textBackGround.png; sourceTree = "<group>"; };
-		987E2A861920B67E00371B01 /* dropbox-bg-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropbox-bg-up.png"; sourceTree = "<group>"; };
+		988805CE192311BD0043B14F /* combo-box-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combo-box-bg.png"; sourceTree = "<group>"; };
+		988805CF192311BD0043B14F /* combo-check-icon-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combo-check-icon-normal.png"; sourceTree = "<group>"; };
+		988805D0192311BD0043B14F /* combo-delete-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combo-delete-icon.png"; sourceTree = "<group>"; };
+		988805D1192311BD0043B14F /* combo-down-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combo-down-icon.png"; sourceTree = "<group>"; };
+		988805D6192316030043B14F /* combo-check-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combo-check-icon.png"; sourceTree = "<group>"; };
 		989D7B69191B6856002C750C /* ComboboxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComboboxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		989D7B6C191B6856002C750C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		989D7B6E191B6856002C750C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -79,11 +79,7 @@
 		989D7B9A191B6856002C750C /* ComboboxDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComboboxDemoTests.m; sourceTree = "<group>"; };
 		989D7BA5191B705E002C750C /* ComboboxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboboxView.h; sourceTree = "<group>"; };
 		989D7BA6191B705E002C750C /* ComboboxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboboxView.m; sourceTree = "<group>"; };
-		98B4EB9719207B7600851F89 /* button-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-clear.png"; sourceTree = "<group>"; };
-		98B4EB9819207B7600851F89 /* dropbox-bg-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropbox-bg-down.png"; sourceTree = "<group>"; };
-		98B4EB9919207B7600851F89 /* dropBtn-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropBtn-normal.png"; sourceTree = "<group>"; };
-		98B4EB9D1920823800851F89 /* checkBox-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBox-active.png"; sourceTree = "<group>"; };
-		98B4EB9E1920823800851F89 /* checkBox-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBox-normal.png"; sourceTree = "<group>"; };
+		98DBA4941923488800527592 /* icon-cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cell.png"; sourceTree = "<group>"; };
 		98DD13361920D4B100218574 /* SampleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTableViewCell.h; sourceTree = "<group>"; };
 		98DD13371920D4B100218574 /* SampleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTableViewCell.m; sourceTree = "<group>"; };
 		98DD13381920D4B100218574 /* SampleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleTableViewCell.xib; sourceTree = "<group>"; };
@@ -217,14 +213,12 @@
 		98B4EB9619207B7600851F89 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9838A58D191E111A00FF651A /* rightArrow.png */,
-				987E2A861920B67E00371B01 /* dropbox-bg-up.png */,
-				987E2A841920A57C00371B01 /* textBackGround.png */,
-				98B4EB9D1920823800851F89 /* checkBox-active.png */,
-				98B4EB9E1920823800851F89 /* checkBox-normal.png */,
-				98B4EB9719207B7600851F89 /* button-clear.png */,
-				98B4EB9819207B7600851F89 /* dropbox-bg-down.png */,
-				98B4EB9919207B7600851F89 /* dropBtn-normal.png */,
+				98DBA4941923488800527592 /* icon-cell.png */,
+				988805D6192316030043B14F /* combo-check-icon.png */,
+				988805CE192311BD0043B14F /* combo-box-bg.png */,
+				988805CF192311BD0043B14F /* combo-check-icon-normal.png */,
+				988805D0192311BD0043B14F /* combo-delete-icon.png */,
+				988805D1192311BD0043B14F /* combo-down-icon.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -305,21 +299,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98B4EB9C19207B7600851F89 /* dropBtn-normal.png in Resources */,
-				98B4EB9A19207B7600851F89 /* button-clear.png in Resources */,
-				98B4EBA01920823800851F89 /* checkBox-normal.png in Resources */,
-				9838A58E191E111A00FF651A /* rightArrow.png in Resources */,
+				988805D3192311BD0043B14F /* combo-check-icon-normal.png in Resources */,
 				989D7B83191B6856002C750C /* Main_iPad.storyboard in Resources */,
 				989D7B88191B6856002C750C /* Images.xcassets in Resources */,
+				988805D5192311BD0043B14F /* combo-down-icon.png in Resources */,
 				989D7B80191B6856002C750C /* Main_iPhone.storyboard in Resources */,
-				98B4EB9B19207B7600851F89 /* dropbox-bg-down.png in Resources */,
 				989D7B77191B6856002C750C /* InfoPlist.strings in Resources */,
+				988805D4192311BD0043B14F /* combo-delete-icon.png in Resources */,
 				987E2A8319208FB100371B01 /* CustomCellWithXib.xib in Resources */,
-				987E2A871920B67E00371B01 /* dropbox-bg-up.png in Resources */,
-				98B4EB9F1920823800851F89 /* checkBox-active.png in Resources */,
+				98DBA4951923488800527592 /* icon-cell.png in Resources */,
 				98DD133F1920D4BD00218574 /* SampleTableViewCell2.xib in Resources */,
+				988805D7192316030043B14F /* combo-check-icon.png in Resources */,
 				98DD133A1920D4B100218574 /* SampleTableViewCell.xib in Resources */,
-				987E2A851920A57C00371B01 /* textBackGround.png in Resources */,
+				988805D2192311BD0043B14F /* combo-box-bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

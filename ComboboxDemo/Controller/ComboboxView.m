@@ -8,6 +8,7 @@
 
 #import "ComboboxView.h"
 #import "objc/runtime.h"
+
 @implementation ComboboxView
 @synthesize showMode,delegate,cellHeight,isCheckBoxSelected,selectedObj;
 
@@ -39,18 +40,16 @@
         if (arrData.count > 0) {
             arrObjProperties = [self allPropertyNamesWithClass:[[arrData objectAtIndex:0] class]];
         }
-
+        lineSeparator = 5.0;
         arrDataToShow = [NSArray arrayWithArray:arrData];
         strCustomCellName = cellName;
         cellView = NSClassFromString(cellName);
         cellHeight = 44;
         dropBoxRect = self.frame;
-
+        //get cell's height
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:strCustomCellName owner:self options:nil];
         id cell = [topLevelObjects objectAtIndex:0];
         cellHeight = ((UIView *)cell).frame.size.height;
-        //  if(containerView)
-        
         
         
         CGFloat btnHeight = frame.size.height;
@@ -58,7 +57,7 @@
         CGRect btnDropRect;
 
         UIImageView *bgView = [[UIImageView alloc]initWithFrame:self.bounds];
-        bgView.image = [self standarScaleWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"textBackGround" ofType:@"png"]]];
+        bgView.image = [self standarScaleWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"combo-box-bg" ofType:@"png"]]];
         
         [self addSubview:bgView];
         if (isCheckBox) {
@@ -67,7 +66,7 @@
             textRect.size.width =self.frame.size.width - btnHeight*2;
             
             UIButton *checkBox = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, btnHeight, btnHeight)];
-            [checkBox setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"checkBox-normal" ofType:@"png"]] forState:UIControlStateNormal];
+            [checkBox setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"combo-check-icon-normal" ofType:@"png"]] forState:UIControlStateNormal];
             [checkBox addTarget:self action:@selector(selectCheckBox:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:checkBox];
             
@@ -89,7 +88,7 @@
 //      drop button
         UIButton *dropBtn = [[UIButton alloc]initWithFrame:btnDropRect];
 //      dropBtn.backgroundColor = [UIColor whiteColor];
-        [dropBtn setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dropBtn-normal" ofType:@"png"]] forState:UIControlStateNormal];
+        [dropBtn setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"combo-down-icon" ofType:@"png"]] forState:UIControlStateNormal];
         [dropBtn addTarget:self action:@selector(selectDropBtn) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:dropBtn];
 
@@ -111,7 +110,7 @@
         clearRect.origin.x = clearRect.size.width - 2*clearRect.size.height;
         clearRect.size.width = clearRect.size.height;
         clearButton = [[UIButton alloc]initWithFrame:clearRect];
-        [clearButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"button-clear" ofType:@"png"]] forState:UIControlStateNormal];
+        [clearButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"combo-delete-icon" ofType:@"png"]] forState:UIControlStateNormal];
 //      [clearButton setBackgroundImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"button-clear" ofType:@"png"]] forState:UIControlStateNormal];
         [clearButton addTarget:self action:@selector(clearOption) forControlEvents:UIControlEventTouchUpInside];
         clearButton.hidden = YES;
@@ -146,12 +145,12 @@
 {
     isCheckBoxSelected = !isCheckBoxSelected;
     if (isCheckBoxSelected) {
-        [sender setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"checkBox-active" ofType:@"png"]] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"combo-check-icon" ofType:@"png"]] forState:UIControlStateNormal];
     }
     else
     {
         
-        [sender setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"checkBox-normal" ofType:@"png"]] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"combo-check-icon-normal" ofType:@"png"]] forState:UIControlStateNormal];
     }
     
 }
@@ -166,23 +165,28 @@
         dropBoxFrame.size.height = cellHeight*5+10;
         CGFloat tableHeight = cellHeight*5 ;
         CGFloat tableWidth = dropBoxFrame.size.width - 10 ;
+        // init dropdown list tableview
         tbvDropBox = [[UITableView alloc]initWithFrame:CGRectMake(5, 5, tableWidth, tableHeight)];
-        tbvDropBox.backgroundColor = [UIColor whiteColor];
+        tbvDropBox.backgroundColor = [UIColor clearColor];
         tbvDropBox.separatorStyle = UITableViewCellSeparatorStyleNone;
         tbvDropBox.delegate = self;
         tbvDropBox.dataSource = self;
+        [tbvDropBox registerNib:[UINib nibWithNibName:strCustomCellName
+                                                   bundle:nil]
+             forCellReuseIdentifier:strCustomCellName];
         UIImage * dropBoxBg ;
+        //set frame for dropview
         switch (showMode) {
             case UP:
             {
-                dropBoxFrame.origin.y -= (cellHeight * 5 + 10);
-                dropBoxBg =[self standarScaleWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dropbox-bg-up" ofType:@"png"]]];
+                dropBoxFrame.origin.y -= (cellHeight * 5 + 10) + lineSeparator;
+                dropBoxBg =[self standarScaleWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"combo-box-bg" ofType:@"png"]]];
             }
                 break;
             case DOWN:
             {
-                dropBoxFrame.origin.y += self.frame.size.height;
-                dropBoxBg =[self standarScaleWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dropbox-bg-down" ofType:@"png"]]];
+                dropBoxFrame.origin.y += self.frame.size.height + lineSeparator;
+                dropBoxBg =[self standarScaleWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"combo-box-bg" ofType:@"png"]]];
             }
                 break;
             default:
@@ -190,7 +194,7 @@
         }
         dropBoxView = [[UIView alloc]init];
         dropBoxView.frame = dropBoxFrame;
-
+        
         UIImageView *bgImage = [[UIImageView alloc]initWithFrame:dropBoxView.bounds] ;
         bgImage.image = dropBoxBg;
         bgImage.tag = 1111;
@@ -208,14 +212,14 @@
     switch (showMode) {
         case UP:
         {
-            boxRect.origin.y -=(cellHeight * 5 + 10);
-            imgBg.image =[self standarScaleWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dropbox-bg-up" ofType:@"png"]]];
+            boxRect.origin.y -=(cellHeight * 5 + 10)+lineSeparator;
+            imgBg.image =[self standarScaleWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"combo-box-bg" ofType:@"png"]]];
         }
             break;
         case DOWN:
         {
-            boxRect.origin.y += self.frame.size.height;
-            imgBg.image =[self standarScaleWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dropbox-bg-down" ofType:@"png"]]];
+            boxRect.origin.y += self.frame.size.height + lineSeparator;
+            imgBg.image =[self standarScaleWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"combo-box-bg" ofType:@"png"]]];
         }
             break;
         default:
@@ -303,10 +307,10 @@
 -(BOOL)searchInString:(NSString *)string withKey:(NSString *)key
 {
     if ([string rangeOfString:key].location == NSNotFound) {
-        //NSLog(@"string does not contain bla");
+        //NSLog(@"string does not contain key");
         
     } else {
-        //NSLog(@"string contains bla!");
+        //NSLog(@"string contains key!");
 
         return true;
     }
@@ -347,6 +351,10 @@
     id cell = [topLevelObjects objectAtIndex:0];
     cellHeight = ((UIView *)cell).frame.size.height;
 
+}
+-(void)setLineSeparator:(CGFloat)lineHeight;
+{
+    lineSeparator = lineHeight;
 }
 #pragma mark - textfield delegate
 
@@ -467,42 +475,44 @@
         id cellProperty;
         @try {
 
-            value = [data valueForKey:[dicProperties objectForKey:key]];
-            cellProperty = [cell valueForKey:key];
+            value = [data valueForKey:[dicProperties objectForKey:key]]; //get value from obj
+            cellProperty = [cell valueForKey:key]; //get cell's property
         }
         @catch (NSException * e) {
             NSLog(@"Exception: %@", e);
         }
         @finally {
             // Added to show finally works as well
+            if(cellProperty)
+            {
+                
+                if ([cellProperty isKindOfClass:[UILabel class]]) {
+                    [cellProperty setText:value];
+                    
+                }
+                else if ([cellProperty isKindOfClass:[UIImageView class]]) {
+                    ((UIImageView *)cellProperty).image = value;
+                }
+                else if ([cellProperty isKindOfClass:[UIButton class]]) {
+                    ((UIButton *)cellProperty).titleLabel.text = value;
+                }
+            }
         }
-        if(cellProperty)
-        {
-            
-            if ([cellProperty isKindOfClass:[UILabel class]]) {
-                [cellProperty setText:value];
-
-            }
-            else if ([cellProperty isKindOfClass:[UIImageView class]]) {
-                ((UIImageView *)cellProperty).image = value;
-            }
-            else if ([cellProperty isKindOfClass:[UIButton class]]) {
-                ((UIButton *)cellProperty).titleLabel.text = value;
-            }
-        }
+        
     }
     return cell;
 }
 #pragma mark - swipe method
 - (void)clearOption
 {
-
     [disapearButtonTimer invalidate];
     selectedObj = nil;
     arrDataToShow = [NSArray arrayWithArray:arrData];
     [tbvDropBox reloadData];
     textInput.text = @"";
     clearButton.hidden = YES;
+    [delegate btnDeleteSelected];
+
 //    [self startTimerToDisapearClearButton];
 }
 -(void)hiddenClearBtn

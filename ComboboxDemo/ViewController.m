@@ -27,7 +27,7 @@
         obj.strDetail = [NSString stringWithFormat:@"Dt:%d",i];
         obj.strHeader = [NSString stringWithFormat:@"Hd:%d",i+1];
         obj.strSubDetail = [NSString stringWithFormat:@"SubDt:%d",i];
-        obj.img = [UIImage imageNamed:@"rightArrow"];
+        obj.img = [UIImage imageNamed:@"icon-cell"];
 
         [arrData addObject:obj];
     }
@@ -53,9 +53,9 @@
 
 //    NSString * strClassCellName = @"SampleTableViewCell";
     
-    ComboboxView *cbView = [[ComboboxView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/2, 200, 25) dataArray:arrData isCheckBox:YES cell:strClassCellName font:nil textPlaceHolder:@"Xin nhap du lieu"];
+    ComboboxView *cbView = [[ComboboxView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/2, 200, 25) dataArray:arrData isCheckBox:NO cell:strClassCellName font:nil textPlaceHolder:@"Xin nhap du lieu"];
     [self.view addSubview:cbView];
-    [cbView setShowMode:UP];
+    [cbView setShowMode:DOWN];
     
 //    [cbView setDropBoxOrigin_x:100];
     [cbView setDropBoxWidth:300];
@@ -67,6 +67,10 @@
     
 }
 -(void)cellSelected:(id)returnObj
+{
+    
+}
+-(void)btnDeleteSelected
 {
     
 }

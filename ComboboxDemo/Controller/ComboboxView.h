@@ -18,7 +18,7 @@ typedef enum {
 @protocol ComboboxViewDelegate
 
 -(void)cellSelected:(id )returnObj;
-
+-(void)btnDeleteSelected;
 @end
 @interface ComboboxView : UIView<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
@@ -34,12 +34,14 @@ typedef enum {
     dropBoxShowMode showMode;
     
     CGFloat cellHeight;
-    
+    CGFloat lineSeparator;
+
     Class cellView;
     
     UIView *dropBoxView;
     
     id<ComboboxViewDelegate> delegate;
+    id selectedObj;//selected object
 
     UIButton * clearButton;
     
@@ -48,19 +50,16 @@ typedef enum {
     search_type searchType;
  
     NSArray * arrSearchVariable;
+    NSArray * arrObjProperties;
     
     NSString * strCustomCellName;//class custom cell
-    
-    id selectedObj;//selected object
     
     NSTimer * disapearButtonTimer;
     
     NSDictionary *dicProperties;
-
-    NSArray * arrObjProperties;
     
     NSThread*  bgThread;
-    
+
 }
 //@property(nonatomic) CGRect dropBoxRect;
 
@@ -83,6 +82,8 @@ typedef enum {
 -(void)setDicProperties:(NSDictionary *)dic;
 
 -(void)setDataArray:(NSArray *)data;
+
+-(void)setLineSeparator:(CGFloat)lineHeight;
 
 //search dic contain: string of variables and search function
 -(void)setSearchType:(NSDictionary*)searchTypeDic;
